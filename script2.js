@@ -122,27 +122,149 @@
 
 // }
 
-//---------------------------------------------------------------//
+//---------------------------------------------------------------
 
-let n = 9474;
+// let n = 9474;
 
-if (n > 0) {
-  let old = n;
-  let PowersSum = 0;
-  let digit = n.toString().length;
-  while (n > 0) {
-    let temp = n % 10;
-    PowersSum = PowersSum + temp ** digit;
-    n = Math.floor(n / 10);
-  }
-  if (old === PowersSum) {
-    console.log("The Number Is Armstrong No:-", old);
-  } else {
-    console.log("The Number Is Not Armstrong No:-", old);
-  }
-} else {
-  console.log("Please enter the Valid Input");
-} // 1 Armstrong Number List-9 , 153 , 370 , 371 , 407 , 1634 , 8208 , 9474 
+// if (n > 0) {
+//   let old = n;
+//   let PowersSum = 0;
+//   let digit = n.toString().length;
+//   while (n > 0) {
+//     let temp = n % 10;
+//     PowersSum = PowersSum + temp ** digit;
+//     n = Math.floor(n / 10);
+//   }
+//   if (old === PowersSum) {
+//     console.log("The Number Is Armstrong No:-", old);
+//   } else {
+//     console.log("The Number Is Not Armstrong No:-", old);
+//   }
+// } else {
+//   console.log("Please enter the Valid Input");
+// } // 1 Armstrong Number List-9 , 153 , 370 , 371 , 407 , 1634 , 8208 , 9474
+
+//---------------------------------------------------------------
+
+// let x = 12;
+// let y = 18;
+
+// let a = x;
+// let b = y;
+
+// while(b !== 0){
+//   let remainder = a % b;
+//   a = b;
+//   b = remainder;
+// }
+
+// let gcd  = a;
+// let lcm = (x*y)/gcd;
+
+// console.log("GCD",gcd);
+// console.log("LCM",lcm);
+
+// -------------------Fibonacci series----------------------
+
+// function fib(num){
+//   if(num <= 0) return 0;
+//   if(num === 1) return 1;
+
+//   return fib(num-1) + fib(num-2);
+// }
+// console.log(fib(8))
+
+//---------------------------------------------------------------
+
+// ex :-  f(n) = 4x2 + 3n + 5
+
+// function solve(n){
+//   return (4 * n ** 2) + (3 * n) + 5;
+// }
+// console.log(solve(1));
+
+//---------------------------------------------------------------
+
+// ex2 :- f(n) = 100 + 5n2 + √n
+
+//Three codes are doing same work  but Time complexity different
+
+// function solve2(n) {
+//     return 100 + 5 * n ** 2 + Math.sqrt(n);
+//   }    // O(1)
+
+// console.log(solve2(10));
+
+//----------
+
+// function calculateF(n) {
+//     return 100 + 5 * n * n + Math.sqrt(n);
+//   }    // O(1)
+
+// console.log(calculateF(10));
+
+//-----------
+
+// function T_complexity(n) {
+//   let result = 100 + Math.sqrt(n); //Space Complexity O(1)
+//   for (let i = 0; i < n; i++) {
+//     for (let j = 0; j < n; j++) {
+//       result += (5 / (n * n)) * (n * n);
+//     }
+//   } // Time Complexity O(n^2)
+//   return result;
+// }
+
+// console.log(T_complexity(10));
+
+//---------------------------------------------------------------
+
+// function binarySearch(arr, target) {
+//   let start = 0,
+//     end = arr.length - 1;
+//   while (start <= end) {
+//     let mid = Math.floor(start + (end-start) / 2);
+//     if (target > arr[mid]) {
+//       start = mid + 1;
+//     } else if (target < arr[mid]) {
+//       end = mid - 1;
+//     } else {
+//       return mid;
+//     }
+//   }
+
+//   return -1;
+// }
+
+// console.log(binarySearch([-1, 0, 3, 5, 9, 12], 0));
+
+//---------------------------------------------------------------
+
+// var isPalindrome = function (x) {
+//   if (x < 0) return false;
+
+//   let originalVal = x;
+//   let rev = 0;
+
+//   while (x > 0) {
+//     let digit = x % 10;
+//     rev = rev * 10 + digit;
+//     x = Math.floor(x / 10);
+//   }
+//   if (rev === originalVal) return true;
+//   else return false;
+// };
+// console.log(isPalindrome(10));
+
+
+
+
+
+
+
+
+
+
 
 
 
