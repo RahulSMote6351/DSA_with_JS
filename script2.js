@@ -256,15 +256,267 @@
 // };
 // console.log(isPalindrome(10));
 
+//---------------------------------------------------------------
 
+// var romanToInt = function (s) {
+//   const map = {
+//     I: 1,
+//     V: 5,
+//     X: 10,
+//     L: 50,
+//     C: 100,
+//     D: 500,
+//     M: 1000,
+//   };
 
+//   let total = 0;
 
+//   for (let i = 0; i < s.length; i++) {
+//     const current = map[s[i]];
+//     const next = map[s[i + 1]];
 
+//     if (current < next) {
+//       total -= current;
+//     } else {
+//       total += current;
+//     }
+//   }
 
+//   return total;
+// };
 
+// console.log(romanToInt("MCM"))
 
+//---------------------------------------------------------------
 
+// var merge = function (nums1, m, nums2, n) {
+//   let i = m - 1;
+//   let j = n - 1;
+//   let k = m + n - 1;
 
+//   while (j >= 0) {
+//     if (i >= 0 && nums1[i] > nums2[j]) {
+//       nums1[k] = nums1[i];
+//       i--;
+//     } else {
+//       nums1[k] = nums2[j];
+//       j--;
+//     }
+//     k--;
+//   }
+//   return nums1
+// };
 
+// console.log(merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3));
 
+//---------------------------------------------------------------
 
+// let str = "My Name is Rahul Mote and I am a Software Engineer";
+
+// let ferquency = {};
+
+// for(let index of str){
+//     console.log(ferquency)
+//     if(ferquency[index]){
+//         ferquency[index] += 1;
+//     }
+//     else{
+//         ferquency[index] = 1;
+//     }
+// }
+// console.log(ferquency)
+// Outout :-- {" ":10 ,"M":2,"y":1,"N":1,"a":6,"m":2,"e":5,"i":2,"s":1,"R":1,"h":1,"u":1,"l":1,"o":2,"t":2,"n":3,"d":1,"I":1,"S":1,"f":1,"w":1,"g":1}
+
+//--------------------------------------------
+
+// let str = "My Name is Rahul Mote";
+
+// let rev = "";
+// let word = "";
+
+// for(let i=0; i<str.length; i++){
+//     if(str[i] === " "){
+//         rev = word + " " + rev;
+//         word = "";
+//     }
+//     else{
+//         word += str[i];
+//     }
+// }
+// rev = word + " " + rev;
+
+// console.log(rev)
+// Output:-- "Mote Rahul is Name My"
+
+//-----------------------------------------------
+
+// let arr = [10 , 5 , 20 ,8];
+
+// let max = arr[0];
+// let secMax = -Infinity;
+
+// for(let i=1; i<arr.length; i++){
+//     if(arr[i] > max){
+//         secMax = max;
+//         max = arr[i];
+//     }
+//     else if(arr[i] > secMax && arr[i] !== max){
+//         secMax = arr[i];
+//     }
+// }
+// console.log("Max:-" , max);
+// console.log("Second Max:-" , secMax);
+
+//-----------------------------------------------
+
+// let arr = [1,2,3,4,5,6,7];
+// let k = 3;
+// // output :-- [5,6,7,1,2,3,4]
+
+// let result =  arr.slice(-k).concat(arr.slice(0,k));
+// console.log(result)
+
+//-----------------------------------------------
+
+//-----------------------------Linked List------------------------------
+
+class ListNode {
+  constructor(val, next = null) {
+    this.val = val;
+    this.next = next;
+  }
+}
+
+let head = new ListNode(1);
+head.next = new ListNode(2);
+head.next.next = new ListNode(3);
+
+// console.log(head);
+
+//-------------------------------
+function printList(head) {
+  let curr = head;
+  while (curr) {
+    console.log(curr.val);
+    curr = curr.next;
+  }
+}
+console.log(printList(head));
+//-------------------------------
+function reverseList(head) {
+  let prev = null;
+  let curr = head;
+
+  while (curr) {
+    let nextTemp = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = nextTemp;
+  }
+
+  return prev;
+}
+console.log(reverseList(head));
+//-------------------------------
+function middleNode(head) {
+  let slow = head;
+  let fast = head;
+
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+
+  return slow;
+}
+console.log(middleNode(head));
+//-------------------------------
+function hasCycle(head) {
+  let slow = head;
+  let fast = head;
+
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+
+    if (slow === fast) return true;
+  }
+
+  return false;
+}
+console.log(hasCycle(head));
+// -------------------------------
+function mergeTwoLists(l1, l2) {
+  let dummy = new ListNode(-1);
+  let curr = dummy;
+
+  while (l1 && l2) {
+    if (l1.val < l2.val) {
+      curr.next = l1;
+      l1 = l1.next;
+    } else {
+      curr.next = l2;
+      l2 = l2.next;
+    }
+    curr = curr.next;
+  }
+
+  curr.next = l1 || l2;
+
+  return dummy.next;
+}
+console.log(mergeTwoLists(head, head.next));
+//-------------------------------
+function removeNthFromEnd(head, n) {
+  let dummy = new ListNode(0);
+  dummy.next = head;
+
+  let fast = dummy;
+  let slow = dummy;
+
+  for (let i = 0; i < n; i++) {
+    fast = fast.next;
+  }
+
+  while (fast && fast.next) {
+    fast = fast.next;
+    slow = slow.next;
+  }
+
+  slow.next = slow.next.next;
+
+  return dummy.next;
+}
+console.log(removeNthFromEnd(head, 2));
+//-------------------------------
+function isPalindrome(head) {
+  let slow = head,
+    fast = head;
+
+  // find middle
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+
+  // reverse second half
+  let prev = null;
+  while (slow) {
+    let next = slow.next;
+    slow.next = prev;
+    prev = slow;
+    slow = next;
+  }
+
+  // compare
+  let left = head,
+    right = prev;
+  while (right) {
+    if (left.val !== right.val) return false;
+    left = left.next;
+    right = right.next;
+  }
+
+  return true;
+}
+console.log(isPalindrome(head));
